@@ -1,3 +1,2 @@
-class EveApp::SolarSystemsController < ApplicationController
-  include SimpleResourceConcern
+class EveApp::SolarSystemsController < EveApp::SimpleResourceController
 end

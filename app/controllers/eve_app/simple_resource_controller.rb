@@ -1,9 +1,11 @@
-module Eve
-  class SimpleResourceController < ApplicationController
+require_dependency "eve_app/application_controller"
+
+module EveApp
+  class SimpleResourceController < EveApp::ApplicationController
     class_attribute :allow_index
     class_attribute :includes
     class_attribute :serializer_includes
-    before_action :authenticate_token!
+    # before_action :authenticate_token!
 
     def index
       if params[:filter] && params[:filter][:id]
@@ -30,7 +32,7 @@ module Eve
     end
 
     def serializer_include
-      self.serializer_includes || ['*']
+      self.serializer_includes # || ['*']
     end
   end
 end

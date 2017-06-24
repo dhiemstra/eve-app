@@ -4,5 +4,5 @@ class EveApp::TypeSerializer < ActiveModel::Serializer
     object.group.try(:name)
   end
 
-  link(:self) { eve_type_path(object) }
+  # link(:self) { type_path(object) }
 end

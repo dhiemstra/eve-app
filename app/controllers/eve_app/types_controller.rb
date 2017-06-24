@@ -1,3 +1,2 @@
-class EveApp::TypesController < ApplicationController
-  include SimpleResourceConcern
+class EveApp::TypesController < EveApp::SimpleResourceController
 end

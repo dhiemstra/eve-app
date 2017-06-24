@@ -1,16 +1,25 @@
 require "pathname"
+require "active_model_serializers"
+require "eve_app/engine"
 
 module EveApp
-  autoload :Engine,  'eve_app/engine'
-  autoload :Version, 'eve_app/version'
-  autoload :SDE,     'eve_app/sde'
+  autoload :SDE, 'eve_app/sde'
 
   class << self
     def root
       @root ||= Pathname.new(File.expand_path("../../", __FILE__))
     end
-  end
 
+    def table_name_prefix
+      @_table_name_prefix ||= begin
+        prefix = EveApp::SDE.config.table_prefix.presence
+        prefix ? "#{prefix}_" : super
+      end
+    end
+  end
+end
+
+if defined?(::Rails)
   module ::Rails
     class Application
       rake_tasks do

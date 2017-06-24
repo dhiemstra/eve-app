@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 5.1.1"
   s.add_dependency "sshkit"
+  s.add_dependency "kaminari"
+  s.add_dependency "active_model_serializers"
 
   s.add_development_dependency "sqlite3"
 end

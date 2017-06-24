@@ -1,3 +1,7 @@
-class EveApp::Type < ApplicationRecord
-  belongs_to :group, class_name: 'EveApp::Group'
+class EveApp::Type < EveApp::ApplicationRecord
+  belongs_to :category
+  belongs_to :group
+  belongs_to :market_group
+
+  scope :published, -> { where(published: true) }
 end

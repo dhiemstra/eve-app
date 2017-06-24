@@ -1,5 +1,5 @@
-class EveApp::RegionSerializer < ActiveModel::Serializer
+class EveApp::RegionSerializer < EveApp::ApplicationSerializer
   attributes :id, :name
 
-  link(:self) { eve_region_path(object) }
+  # link(:self) { region_path(object) }
 end
