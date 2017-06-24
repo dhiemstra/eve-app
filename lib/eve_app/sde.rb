@@ -1,14 +1,17 @@
 module EveApp
   module SDE
     autoload :DataImporter, 'eve_app/sde/data_importer'
+    autoload :Downloader,   'eve_app/sde/downloader'
+    autoload :Normalizer,   'eve_app/sde/normalizer'
 
     DEFAULT_CONFIG = {
+      table_prefix:    :eve,
       download_host:   'https://www.fuzzwork.co.uk/dump',
       archive:         'postgres-latest.dmp.bz2',
       tmp_path:        Rails.root.join('tmp', 'eve-sde'),
-      table_list_file: EveApp.root.join('lib', 'table-list.yml'),
-      table_map_file:  EveApp.root.join('lib', 'table-map.yml'),
+      table_list_file: EveApp.root.join('lib', 'table-list.yml')
     }
+    PREFIXES = %w(agt dgm map trn inv sta)
 
     class << self
       def config
