@@ -18,5 +18,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 5.1.1"
 
+  s.add_development_dependency "sshkit"
   s.add_development_dependency "sqlite3"
 end

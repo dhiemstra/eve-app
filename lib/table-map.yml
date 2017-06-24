@@ -1,0 +1,177 @@
+---
+agtAgentTypes:
+  destination: agt_agent_types
+agtAgents:
+  destination: agt_agents
+agtResearchAgents:
+  destination: agt_research_agents
+certCerts:
+  destination: cert_certs
+certMasteries:
+  destination: cert_masteries
+certSkills:
+  destination: cert_skills
+chrAncestries:
+  destination: chr_ancestries
+chrAttributes:
+  destination: chr_attributes
+chrBloodlines:
+  destination: chr_bloodlines
+chrFactions:
+  destination: chr_factions
+chrRaces:
+  destination: chr_races
+crpActivities:
+  destination: crp_activities
+crpNPCCorporationDivisions:
+  destination: crp_npccorporation_divisions
+crpNPCCorporationResearchFields:
+  destination: crp_npccorporation_research_fields
+crpNPCCorporationTrades:
+  destination: crp_npccorporation_trades
+crpNPCCorporations:
+  destination: crp_npccorporations
+crpNPCDivisions:
+  destination: crp_npcdivisions
+dgmAttributeCategories:
+  destination: dgm_attribute_categories
+dgmAttributeTypes:
+  destination: dgm_attribute_types
+dgmEffects:
+  destination: dgm_effects
+dgmExpressions:
+  destination: dgm_expressions
+dgmTypeAttributes:
+  destination: dgm_type_attributes
+dgmTypeEffects:
+  destination: dgm_type_effects
+eveGraphics:
+  destination: eve_graphics
+eveIcons:
+  destination: eve_icons
+eveUnits:
+  destination: eve_units
+industryActivity:
+  destination: industry_activity
+industryActivityMaterials:
+  destination: industry_activity_materials
+industryActivityProbabilities:
+  destination: industry_activity_probabilities
+industryActivityProducts:
+  destination: industry_activity_products
+industryActivityRaces:
+  destination: industry_activity_races
+industryActivitySkills:
+  destination: industry_activity_skills
+industryBlueprints:
+  destination: industry_blueprints
+invCategories:
+  destination: inv_categories
+invContrabandTypes:
+  destination: inv_contraband_types
+invControlTowerResourcePurposes:
+  destination: inv_control_tower_resource_purposes
+invControlTowerResources:
+  destination: inv_control_tower_resources
+invFlags:
+  destination: inv_flags
+invGroups:
+  destination: inv_groups
+invItems:
+  destination: inv_items
+invMarketGroups:
+  destination: inv_market_groups
+invMetaGroups:
+  destination: inv_meta_groups
+invMetaTypes:
+  destination: inv_meta_types
+invNames:
+  destination: inv_names
+invPositions:
+  destination: inv_positions
+invTraits:
+  destination: inv_traits
+invTypeMaterials:
+  destination: inv_type_materials
+invTypeReactions:
+  destination: inv_type_reactions
+invTypes:
+  destination: inv_types
+invUniqueNames:
+  destination: inv_unique_names
+invVolumes:
+  destination: inv_volumes
+mapCelestialStatistics:
+  destination: map_celestial_statistics
+mapConstellationJumps:
+  destination: map_constellation_jumps
+mapConstellations:
+  destination: map_constellations
+mapDenormalize:
+  destination: map_denormalize
+mapJumps:
+  destination: map_jumps
+mapLandmarks:
+  destination: map_landmarks
+mapLocationScenes:
+  destination: map_location_scenes
+mapLocationWormholeClasses:
+  destination: map_location_wormhole_classes
+mapRegionJumps:
+  destination: map_region_jumps
+mapRegions:
+  destination: map_regions
+mapSolarSystemJumps:
+  destination: map_solar_system_jumps
+mapSolarSystems:
+  destination: map_solar_systems
+mapUniverse:
+  destination: map_universe
+planetSchematics:
+  destination: planet_schematics
+planetSchematicsPinMap:
+  destination: planet_schematics_pin_map
+planetSchematicsTypeMap:
+  destination: planet_schematics_type_map
+ramActivities:
+  destination: ram_activities
+ramAssemblyLineStations:
+  destination: ram_assembly_line_stations
+ramAssemblyLineTypeDetailPerCategory:
+  destination: ram_assembly_line_type_detail_per_category
+ramAssemblyLineTypeDetailPerGroup:
+  destination: ram_assembly_line_type_detail_per_group
+ramAssemblyLineTypes:
+  destination: ram_assembly_line_types
+ramInstallationTypeContents:
+  destination: ram_installation_type_contents
+skinLicense:
+  destination: skin_license
+skinMaterials:
+  destination: skin_materials
+skinShip:
+  destination: skin_ship
+skins:
+  destination: skins
+staOperationServices:
+  destination: sta_operation_services
+staOperations:
+  destination: sta_operations
+staServices:
+  destination: sta_services
+staStationTypes:
+  destination: sta_station_types
+staStations:
+  destination: sta_stations
+translationTables:
+  destination: translation_tables
+trnTranslationColumns:
+  destination: trn_translation_columns
+trnTranslationLanguages:
+  destination: trn_translation_languages
+trnTranslations:
+  destination: trn_translations
+warCombatZoneSystems:
+  destination: war_combat_zone_systems
+warCombatZones:
+  destination: war_combat_zones
