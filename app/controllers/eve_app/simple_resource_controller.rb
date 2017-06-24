@@ -32,7 +32,7 @@ module EveApp
     end
 
     def serializer_include
-      self.serializer_includes # || ['*']
+      self.serializer_includes || ['*']
     end
   end
 end

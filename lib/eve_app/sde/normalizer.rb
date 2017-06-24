@@ -4,6 +4,7 @@ module EveApp
       def normalize
         table_names
         column_names
+        missing_relations
         indexes
       end
 
@@ -35,17 +36,13 @@ module EveApp
           if row[:column_name] == 'id'
             sql %Q(ALTER TABLE #{row[:table_name]} DROP CONSTRAINT IF EXISTS #{row[:table_name]}_pkey)
             sql %Q(ALTER TABLE #{row[:table_name]} ADD PRIMARY KEY (id))
-            # sql %Q(
-            # DO $$
-            #   BEGIN
-            #     ALTER TABLE #{row[:table_name]} ADD PRIMARY KEY (id);
-            #   EXCEPTION
-            #     WHEN duplicate_column THEN RETURN TRUE;
-            #   END;
-            # $$
-            # )
           end
         end
+      end
+
+      def missing_relations
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS category_id integer)
+        sql %Q(UPDATE #{table_list['invTypes']} SET category_id = (SELECT category_id FROM #{table_list['invGroups']} WHERE id = #{table_list['invTypes']}.group_id))
       end
 
       private
