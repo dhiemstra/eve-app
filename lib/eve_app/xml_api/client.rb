@@ -1,4 +1,6 @@
 require 'fileutils'
+require 'net/http'
+require 'rest-client'
 
 module EveApp
   module XmlApi
