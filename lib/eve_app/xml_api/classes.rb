@@ -227,8 +227,8 @@ module EveApp
           @title = elem['title']
           @logon_date = parse_time(elem['logonDateTime'])
           @logoff_date = parse_time(elem['logoffDateTime'])
-          @location_id = elem['locationID'].to_i
-          @location = elem['location']
+          @location_id = elem['locationID'].to_i > 0 ? elem['locationID'].to_i : nil
+          @location = elem['location'].presence
           @ship_type_id = elem['shipTypeID'].to_i
           @ship_type = elem['shipType']
           @roles = elem['roles']
