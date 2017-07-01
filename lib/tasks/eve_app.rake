@@ -2,7 +2,9 @@ require 'eve_app'
 
 namespace :eve_app do
   namespace :sde do
-    importer = EveApp::SDE::DataImporter.new
+    def importer
+      @importer ||= EveApp::SDE::DataImporter.new
+    end
 
     desc "Download latest postgresql datadump"
     task :download do
