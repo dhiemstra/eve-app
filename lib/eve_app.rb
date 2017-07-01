@@ -4,6 +4,7 @@ require "eve_app/engine"
 
 module EveApp
   autoload :SDE, 'eve_app/sde'
+  autoload :XmlApi, 'eve_app/xml_api'
 
   class << self
     def root
