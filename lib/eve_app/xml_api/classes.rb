@@ -235,6 +235,26 @@ module EveApp
           @grantable_roles = elem['grantableRoles']
         end
       end
+
+      class CorporateMemberSecurity < Base
+        attr_reader :character_id, :name, :titles
+
+        def initialize(elem)
+          @character_id = elem['characterID'].to_i
+          @name = elem['name']
+          @titles = elem.search('rowset[@name="titles"]/row').map { |t| t['titleName'] }
+        end
+      end
+
+      class CorporateTitle < Base
+        attr_reader :id, :name, :description
+
+        def initialize(elem)
+          @id = elem['roleID'].to_i
+          @name = elem['roleName']
+          @description = elem['roleDescription']
+        end
+      end
     end
   end
 end

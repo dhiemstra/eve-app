@@ -155,6 +155,16 @@ module EveApp
         self.endpoint = '/corp/MemberTracking.xml.aspx'
       end
 
+      class CorporateMemberSecurity < Base
+        self.class_name = Classes::CorporateMemberSecurity
+        self.endpoint = '/corp/MemberSecurity.xml.aspx'
+      end
+
+      class CorporateTitles < Base
+        self.class_name = Classes::CorporateTitle
+        self.endpoint = '/corp/Titles.xml.aspx'
+      end
+
       class ErrorResponse < Base
         attr_reader :exception, :call, :params
 
