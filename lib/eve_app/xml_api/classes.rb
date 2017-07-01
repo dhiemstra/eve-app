@@ -5,7 +5,7 @@ module EveApp
         protected
 
         def parse_time(value)
-          value.starts_with?('0001') ? nil : "#{value}Z".to_time
+          !value || value.starts_with?('0001') ? nil : "#{value}Z".to_time
         end
       end
 
