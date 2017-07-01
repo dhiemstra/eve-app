@@ -145,6 +145,11 @@ module EveApp
         self.endpoint = '/corp/AssetList.xml.aspx'
       end
 
+      class CorporateMemberTracking < Base
+        self.class_name = Classes::CorporateMemberTracking
+        self.endpoint = '/corp/MemberTracking.xml.aspx'
+      end
+
       class ErrorResponse < Base
         attr_reader :exception, :call, :params
 

@@ -199,6 +199,27 @@ module EveApp
           @successful_runs = elem['successfulRuns'].to_i
         end
       end
+
+      class CorporateMemberTracking < Base
+        attr_reader :character_id, :name, :start_date, :base_id, :base, :title, :logon_date, :logoff_date, :location_id, :location, :ship_type_id, :ship_type, :roles, :grantable_roles
+
+        def initialize(elem)
+          @character_id = elem['characterID'].to_i
+          @name = elem['name']
+          @start_date = parse_time(elem['startDateTime'])
+          @base_id = elem['baseID'].to_i
+          @base = elem['base']
+          @title = elem['title']
+          @logon_date = parse_time(elem['logonDateTime'])
+          @logoff_date = parse_time(elem['logoffDateTime'])
+          @location_id = elem['locationID'].to_i
+          @location = elem['location']
+          @ship_type_id = elem['shipTypeID'].to_i
+          @ship_type = elem['shipType']
+          @roles = elem['roles']
+          @grantable_roles = elem['grantableRoles']
+        end
+      end
     end
   end
 end
