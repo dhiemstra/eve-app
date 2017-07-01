@@ -36,6 +36,11 @@ module EveApp
         end
       end
 
+      class Characters < Base
+        self.class_name = Classes::Characters
+        self.endpoint = '/account/Characters.xml.aspx'
+      end
+
       class Sheet < Base
         attr_reader :sheet
 

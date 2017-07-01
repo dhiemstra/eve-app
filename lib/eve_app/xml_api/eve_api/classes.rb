@@ -9,6 +9,21 @@ module EveApp
         end
       end
 
+      class Characters < Base
+        attr_reader :id, :name, :corporation_id, :corporation_name, :alliance_id, :alliance_name, :faction_id, :faction_name
+
+        def initialize(elem)
+          @id = elem['characterID'].to_i
+          @name = elem['name']
+          @corporation_id = elem['corporationID'].to_i
+          @corporation_name = elem['corporationName']
+          @alliance_id = elem['allianceID'].to_i
+          @alliance_name = elem['allianceName']
+          @faction_id = elem['factionID'].to_i
+          @faction_name = elem['factionName']
+        end
+      end
+
       class AccountBalance < Base
         attr_reader :id, :key, :balance
 
