@@ -2,16 +2,16 @@ module EveApp::TypeCardHelper
   def type_card(type, size=:medium, options={})
     # locals = { type: type, size: size, link_url: nil, clipboard: nil, description: nil }.merge(options)
     # render partial: 'shared/type_card', locals: locals
-    raw content_tag(:div, nil, class: "media type-card type-card-#{size}") do
-      [
-        image_tag(type.image, class: "d-flex mr-3"),
-        content_tag(:div, class: "media-body") do
-          [
-            content_tag(:h6, type.name),
-            content_tag(:div, 'description', class: 'text-sm text-muted')
-          ].join("\n")
-        end
-      ].join("\n")
-    end
+
+    body = [
+      content_tag(:h6, type.name),
+      content_tag(:div, 'description', class: 'text-sm text-muted')
+    ].join("\n")
+    wrapper = [
+      image_tag(type.image, class: "d-flex mr-3"),
+      content_tag(:div, body, class: "media-body")
+    ].join("\n")
+
+    raw content_tag(:div, wrapper, class: "media type-card type-card-#{size}")
   end
 end
