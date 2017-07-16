@@ -2,6 +2,7 @@ class EveApp::Type < EveApp::ApplicationRecord
   belongs_to :category
   belongs_to :group
   belongs_to :market_group
+  belongs_to :market_group_root, class: 'EveApp::MarketGroup'
 
   scope :published, -> { where(published: true) }
 
@@ -22,7 +23,7 @@ class EveApp::Type < EveApp::ApplicationRecord
   end
 
   def description
-    blueprint? ? blueprint_type + ' blueprint' : category_name
+    category.name
   end
 
   def sort_key
@@ -36,7 +37,7 @@ class EveApp::Type < EveApp::ApplicationRecord
     when EveApp::Category::SHIP
       return 1000
     when EveApp::Category::MODULE
-      case market_group.root_group_id
+      case market_group_root_id
       when EveApp::MarketGroup::SHIP_MODIFICATIONS
         return 1500
       else
