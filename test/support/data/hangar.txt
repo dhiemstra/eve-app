@@ -1,0 +1,10 @@
+1200mm Artillery Cannon II	14	Projectile Weapon	Large	High	280 m3	66.650.839,64 ISK
+Ballistic Control System II	50	Ballistic Control system		Low	250 m3	47.087.964,50 ISK
+Coreli A-Type 5MN Microwarpdrive	4	Propulsion Module		Medium	40 m3	112.707.923,08 ISK
+Nanite Repair Paste	3.230	Nanite Repair Paste			32,30 m3	87.361.680,80 ISK
+Nanite Repair Paste	3.770	Nanite Repair Paste			37,70 m3	101.967.039,20 ISK
+Scimitar	2	Logistics			20.000 m3	343.205.885,12 ISK
+Small Core Defense Field Extender II	25	Rig Shield		Rigs	125 m3	154.591.291,75 ISK
+Vexor	1	Cruiser			10.000 m3	10.034.966,76 ISK
+Warp Disrupt Probe	12	Interdiction Probe			60 m3	2.039.949,72 ISK
+Warp Disrupt Probe	358	Interdiction Probe			1.790 m3	60.858.499,98 ISK
