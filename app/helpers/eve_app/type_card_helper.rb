@@ -12,6 +12,6 @@ module EveApp::TypeCardHelper
           ].join("\n")
         end
       ].join("\n")
-    end
+    end.html_safe
   end
 end
