@@ -1,4 +1,4 @@
-module OutputHelper
+module EveApp::OutputHelper
   def isk(number, force_negative=false, round=true)
     if number
       number = BigDecimal.new(number) if number.is_a?(String)

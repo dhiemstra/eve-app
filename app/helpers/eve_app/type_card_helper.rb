@@ -1,4 +1,4 @@
-module TypeCardHelper
+module EveApp::TypeCardHelper
   def type_card(type, size=:medium, options={})
     # locals = { type: type, size: size, link_url: nil, clipboard: nil, description: nil }.merge(options)
     # render partial: 'shared/type_card', locals: locals
