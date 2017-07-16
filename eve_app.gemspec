@@ -17,6 +17,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 5.1.1"
+  s.add_dependency "multi_json"
   s.add_dependency "sshkit"
   s.add_dependency "kaminari"
   s.add_dependency "rest-client"
