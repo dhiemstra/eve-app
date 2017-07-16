@@ -45,6 +45,29 @@ module EveApp
         sql %Q(UPDATE #{table_list['invTypes']} SET category_id = (SELECT category_id FROM #{table_list['invGroups']} WHERE id = #{table_list['invTypes']}.group_id))
       end
 
+      def utilities
+        sql %Q(ALTER TABLE #{table_list['invMarketGroups']} ADD root_group_id INTEGER DEFAULT NULL)
+        sql %Q(
+        WITH RECURSIVE mg_roots(id, root_id) AS (
+            SELECT mg.id, mg.id AS root_id FROM #{table_list['invMarketGroups']} AS mg WHERE mg.parent_group_id IS NULL
+            UNION ALL
+              SELECT c.id, p.root_id FROM mg_roots AS p, #{table_list['invMarketGroups']} AS c WHERE c.parent_group_id = p.id
+          )
+          UPDATE #{table_list['invMarketGroups']} SET root_group_id = mg_roots.root_id FROM (
+            SELECT id, root_id FROM mg_roots WHERE root_id != id
+          ) AS mg_roots WHERE market_groups.id = mg_roots.id;
+        )
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD category_id integer)
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD category_name character varying)
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD market_group_name character varying)
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD market_group_root_id integer)
+        sql %Q(UPDATE #{table_list['invTypes']} SET market_group_root_id = (SELECT root_group_id FROM market_groups WHERE id = #{table_list['invMarketGroups']}.market_group_id))
+        sql %Q(UPDATE #{table_list['invTypes']} SET category_id = (SELECT category_id FROM groups WHERE id = #{table_list['invTypes']}.group_id))
+        sql %Q(UPDATE #{table_list['invTypes']} SET category_name = (SELECT name FROM categories WHERE id = #{table_list['invTypes']}.category_id))
+        sql %Q(UPDATE #{table_list['invTypes']} SET market_group_name = (SELECT name FROM market_groups WHERE id = #{table_list['invTypes']}.market_group_id))
+        sql %Q(UPDATE #{table_list['invTypes']} SET market_group_root_id = (SELECT root_group_id FROM market_groups WHERE id = #{table_list['invTypes']}.market_group_id))
+      end
+
       private
 
       def columns
