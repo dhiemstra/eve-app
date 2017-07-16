@@ -2,7 +2,7 @@ class EveApp::Type < EveApp::ApplicationRecord
   belongs_to :category
   belongs_to :group
   belongs_to :market_group
-  belongs_to :market_group_root, class: 'EveApp::MarketGroup'
+  belongs_to :market_group_root, class_name: 'EveApp::MarketGroup'
 
   scope :published, -> { where(published: true) }
 
