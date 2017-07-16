@@ -6,15 +6,15 @@ class EveApp::Type < EveApp::ApplicationRecord
   scope :published, -> { where(published: true) }
 
   def blueprint?
-    category_id == Category::BLUEPRINT
+    category_id == EveApp::Category::BLUEPRINT
   end
 
   def accessoire?
-    category_id == Category::ACCESSOIRE
+    category_id == EveApp::Category::ACCESSOIRE
   end
 
   def ship?
-    category_id == Category::SHIP
+    category_id == EveApp::Category::SHIP
   end
 
   def image(size=64)
@@ -33,23 +33,23 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   def sort_index
     case category_id
-    when Category::SHIP
+    when EveApp::Category::SHIP
       return 1000
-    when Category::MODULE
+    when EveApp::Category::MODULE
       case market_group.root_group_id
-      when MarketGroup::SHIP_MODIFICATIONS
+      when EveApp::MarketGroup::SHIP_MODIFICATIONS
         return 1500
       else
         return 1100
       end
-    when Category::CHARGE
+    when EveApp::Category::CHARGE
       case market_group_id
-      when MarketGroup::NANITE_PASTE
+      when EveApp::MarketGroup::NANITE_PASTE
         return 1300
       else
         return 1200
       end
-    when Category::DRONE then 1500
+    when EveApp::Category::DRONE then 1500
     else 2000
     end
   end
