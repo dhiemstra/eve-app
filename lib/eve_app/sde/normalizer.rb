@@ -55,7 +55,7 @@ module EveApp
             SELECT id, root_id FROM mg_roots WHERE root_id != id
           ) AS mg_roots WHERE #{table_list['invMarketGroups']}.id = mg_roots.id;
         )
-        sql %Q(UPDATE #{table_list['invTypes']} SET market_group_root_id = (SELECT root_group_id FROM #{table_list['invMarketGroups']} WHERE id = #{table_list['invMarketGroups']}.market_group_id))
+        sql %Q(UPDATE #{table_list['invTypes']} SET market_group_root_id = (SELECT root_group_id FROM #{table_list['invMarketGroups']} WHERE id = #{table_list['invTypes']}.market_group_id))
       end
 
       private
