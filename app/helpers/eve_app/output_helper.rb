@@ -1,7 +1,7 @@
 module EveApp::OutputHelper
   def isk(number, force_negative=false, round=true)
     if number
-      number = BigDecimal.new(number) if number.is_a?(String)
+      number = BigDecimal.new(number / 100.0) if number.is_a?(String)
       precision = round ? 0 : 2
       number = -number if force_negative
       negative = number < 0
