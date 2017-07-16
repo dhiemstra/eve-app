@@ -6,6 +6,7 @@ module EveApp
         column_names
         missing_relations
         indexes
+        utilities
       end
 
       def table_names
