@@ -12,6 +12,6 @@ module EveApp::TypeCardHelper
       content_tag(:div, body, class: "media-body")
     ].join("\n").html_safe
 
-    raw content_tag(:div, wrapper, class: "media type-card type-card-#{size}")
+    raw content_tag(:div, wrapper, class: "media type-card #{size}")
   end
 end
