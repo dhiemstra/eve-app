@@ -52,8 +52,6 @@ module EveApp
 
     def self.parse_response(json)
       json.map { |row|
-        puts row.inspect
-
         OpenStruct.new(
           type_id:         row[:all][:forQuery][:types].first,
           solar_system_id: row[:all][:forQuery][:systems].first,
@@ -74,7 +72,6 @@ module EveApp
         @min = (data[:min].to_f * 100).round
         @stddev = (data[:stdDev].to_f * 100).round
         @median = (data[:median].to_f * 100).round
-        @percentile = (data[:percentile].to_f * 100).round
       end
     end
   end
