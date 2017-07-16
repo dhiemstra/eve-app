@@ -5,10 +5,10 @@ module EveApp::TypeCardHelper
 
     body = [
       content_tag(:h6, type.name),
-      content_tag(:div, 'description', class: 'text-sm text-muted')
+      content_tag(:div, type.description, class: 'text-sm text-muted')
     ].join("\n").html_safe
     wrapper = [
-      image_tag(type.image, class: "d-flex mr-3 eve-image #{size}"),
+      image_tag(type.image),
       content_tag(:div, body, class: "media-body")
     ].join("\n").html_safe
 
