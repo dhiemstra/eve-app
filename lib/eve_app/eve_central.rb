@@ -55,10 +55,10 @@ module EveApp
         puts row.inspect
 
         OpenStruct.new(
-          type_id: row[:all][:forQuery][:types].first,
-          systems: row[:all][:forQuery][:systems].first,
-          buy:     PriceResult.new(:buy, row[:buy]),
-          sell:    PriceResult.new(:sell, row[:sell])
+          type_id:         row[:all][:forQuery][:types].first,
+          solar_system_id: row[:all][:forQuery][:systems].first,
+          buy:             PriceResult.new(:buy, row[:buy]),
+          sell:            PriceResult.new(:sell, row[:sell])
         )
       }
     end
