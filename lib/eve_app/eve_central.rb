@@ -4,7 +4,7 @@ module EveApp
     QUICKLOOK_ENDPOINT = 'http://api.eve-central.com/api/quicklook'
     MAX_TRIES = 3
 
-    def self.fetch(type_ids, system_id=SolarSystem::JITA)
+    def self.fetch(type_ids, system_id=EveApp::SolarSystem::JITA)
       type_ids = Array[type_ids].flatten
       results = []
       type_ids.in_groups_of(100, false) do |group|
@@ -13,13 +13,13 @@ module EveApp
       results
     end
 
-    def self.fetch_prices(type_ids, system_id=SolarSystem::JITA)
+    def self.fetch_prices(type_ids, system_id=EveApp::SolarSystem::JITA)
       type_ids = Array[type_ids].flatten
       doc = request(generate_url(ENDPOINT, type_ids, system_id))
       parse_marketstat_response(doc)
     end
 
-    def self.quicklook(type_ids, system_id=SolarSystem::JITA)
+    def self.quicklook(type_ids, system_id=EveApp::SolarSystem::JITA)
       type_ids = Array[type_ids].flatten
       orders = type_ids.map do |type_id|
         doc = request(generate_url(QUICKLOOK_ENDPOINT, type_id, system_id, sethours: 6))
