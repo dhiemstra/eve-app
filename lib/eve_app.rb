@@ -3,9 +3,10 @@ require "active_model_serializers"
 require "eve_app/engine"
 
 module EveApp
+  autoload :EveCentral, 'eve_app/eve_central'
   autoload :ItemParser, 'eve_app/item_parser'
-  autoload :SDE, 'eve_app/sde'
-  autoload :XmlApi, 'eve_app/xml_api'
+  autoload :SDE,        'eve_app/sde'
+  autoload :XmlApi,     'eve_app/xml_api'
 
   class << self
     def root

@@ -1,3 +1,5 @@
+require 'rest-client'
+
 module EveApp
   module XmlApi
     class Calls
