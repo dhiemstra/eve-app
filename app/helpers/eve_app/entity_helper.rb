@@ -1,4 +1,4 @@
-module EveApp::TypeCardHelper
+module EveApp::EntityHelper
   def entity(record, size: :medium, description: nil, link_url: nil)
     title = link_url ? link_to(record.name, link_url) : record.name
     body = [
