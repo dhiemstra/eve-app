@@ -33,9 +33,14 @@ module EveApp
           if (row[:column_name].ends_with?('id') || row[:column_name] == 'name') && !has_index?(db, row[:table_name], row[:column_name])
             sql %Q(CREATE INDEX IF NOT EXISTS idx_#{row[:table_name]}_#{row[:column_name]} ON #{row[:table_name]} (#{row[:column_name]});)
           end
-          if add_id_index?(row)
+          if row[:column_name] == 'id'
             sql %Q(ALTER TABLE #{row[:table_name]} DROP CONSTRAINT IF EXISTS #{row[:table_name]}_pkey)
-            sql %Q(ALTER TABLE #{row[:table_name]} ADD PRIMARY KEY (id))
+
+            if complex_id_index?(row[:table_name])
+              sql %Q(ALTER TABLE #{row[:table_name]} ADD PRIMARY KEY (id, type_id))
+            else
+              sql %Q(ALTER TABLE #{row[:table_name]} ADD PRIMARY KEY (id))
+            end
           end
         end
       end
@@ -60,8 +65,8 @@ module EveApp
 
       private
 
-      def add_id_index?(row)
-        row[:column_name] == 'id' && !SDE::SKIP_ID_INDEX.include?(row[:table_name].gsub("#{SDE.config.table_prefix.to_s}_", ''))
+      def complex_id_index?(table_name)
+        SDE::ID_TYPE_INDEX.include?(table_name.gsub("#{SDE.config.table_prefix.to_s}_", ''))
       end
 
       def columns

@@ -12,7 +12,7 @@ module EveApp
       table_list_file: EveApp.root.join('lib', 'table-list.yml')
     }
     PREFIXES = %w(agt dgm map trn inv sta industry)
-    SKIP_ID_INDEX = %w(activities)
+    ID_TYPE_INDEX = %w(activities)
 
     class << self
       def config

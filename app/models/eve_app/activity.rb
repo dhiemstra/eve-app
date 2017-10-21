@@ -1,10 +1,10 @@
 class EveApp::Activity < EveApp::ApplicationRecord
   TYPE_MAP = {
-    1: :manufacture,
-    3: :research_te,
-    4: :research_me,
-    5: :copying,
-    8: :invention
+    1 => :manufacture,
+    3 => :research_te,
+    4 => :research_me,
+    5 => :copying,
+    8 => :invention
   }
   MANUFACTURE = 1
   RESEARCH_TE = 3
