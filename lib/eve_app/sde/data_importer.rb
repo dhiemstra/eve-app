@@ -36,7 +36,7 @@ module EveApp
       end
 
       def normalize_table_name(name)
-        (SDE.config.table_prefix.to_s + name.gsub(/^#{SDE::PREFIXES.join('|')}/, '')).underscore
+        (SDE.config.table_prefix.to_s + name.gsub(/^#{SDE::PREFIXES.join('|')}/, '')).pluralize.underscore
       end
     end
   end

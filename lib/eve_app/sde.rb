@@ -11,7 +11,8 @@ module EveApp
       tmp_path:        Rails.root.join('tmp', 'eve-sde'),
       table_list_file: EveApp.root.join('lib', 'table-list.yml')
     }
-    PREFIXES = %w(agt dgm map trn inv sta)
+    PREFIXES = %w(agt dgm map trn inv sta industry)
+    SKIP_ID_INDEX = %w(activities)
 
     class << self
       def config

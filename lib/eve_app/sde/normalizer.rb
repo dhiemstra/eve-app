@@ -33,7 +33,7 @@ module EveApp
           if (row[:column_name].ends_with?('id') || row[:column_name] == 'name') && !has_index?(db, row[:table_name], row[:column_name])
             sql %Q(CREATE INDEX IF NOT EXISTS idx_#{row[:table_name]}_#{row[:column_name]} ON #{row[:table_name]} (#{row[:column_name]});)
           end
-          if row[:column_name] == 'id'
+          if add_id_index?(row)
             sql %Q(ALTER TABLE #{row[:table_name]} DROP CONSTRAINT IF EXISTS #{row[:table_name]}_pkey)
             sql %Q(ALTER TABLE #{row[:table_name]} ADD PRIMARY KEY (id))
           end
@@ -59,6 +59,10 @@ module EveApp
       end
 
       private
+
+      def add_id_index?(row)
+        row[:column_name] == 'id' && !SDE::SKIP_ID_INDEX.include?(row[:table_name].gsub("#{SDE.config.table_prefix.to_s}_", ''))
+      end
 
       def columns
         query = %Q(
