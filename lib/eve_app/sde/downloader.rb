@@ -17,6 +17,7 @@ module EveApp
 
         options = ['-x -O']
         options << "-h #{db_config[:host]}" if db_config[:host]
+        options << "-p #{db_config[:port]}" if db_config[:port]
         options << "-U #{db_config[:username]}" if db_config[:username]
         options << "-d #{db_config[:database]}"
         options += table_list.keys.map { |name| "-t #{name}" }

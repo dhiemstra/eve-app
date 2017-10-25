@@ -4,6 +4,8 @@ class EveApp::Type < EveApp::ApplicationRecord
   belongs_to :market_group
   belongs_to :market_group_root, class_name: 'EveApp::MarketGroup'
 
+  has_many :activity_products
+
   scope :published, -> { where(published: true) }
 
   def blueprint?
