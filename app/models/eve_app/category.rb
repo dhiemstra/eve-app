@@ -6,7 +6,7 @@ class EveApp::Category < EveApp::ApplicationRecord
   CHARGE = 8
   BLUEPRINT = 9
   SKILL = 16
-  DATACORE = 17
+  COMMODITY = 17
   DRONE = 18
   DEPLOYABLE = 22
   STARBASE = 23
@@ -16,7 +16,7 @@ class EveApp::Category < EveApp::ApplicationRecord
   ANCIENT_RELICS = 34
   DECRYPTOR = 35
   PLANET_INTERACTION = 41
-  COMMODITY = 43
+  PLANETARY COMMODITY = 43
   STRUCTURE = 65
   STRUCTURE_MODULE = 66
   FIGHTER = 87
