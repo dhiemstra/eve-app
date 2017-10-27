@@ -52,10 +52,12 @@ module EveApp
         sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS market_group_name character varying)
         sql %Q(ALTER TABLE #{table_list['invMarketGroups']} ADD root_group_id INTEGER DEFAULT NULL)
         sql %Q(ALTER TABLE #{table_list['invTypes']} ADD market_group_root_id integer)
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD blueprint_type_id integer)
         sql %Q(UPDATE #{table_list['invTypes']} SET group_name = (SELECT name FROM #{table_list['invGroups']} WHERE id = #{table_list['invTypes']}.group_id))
         sql %Q(UPDATE #{table_list['invTypes']} SET category_id = (SELECT category_id FROM #{table_list['invGroups']} WHERE id = #{table_list['invTypes']}.group_id))
         sql %Q(UPDATE #{table_list['invTypes']} SET category_name = (SELECT name FROM #{table_list['invCategories']} WHERE id = #{table_list['invTypes']}.category_id))
         sql %Q(UPDATE #{table_list['invTypes']} SET market_group_name = (SELECT name FROM #{table_list['invMarketGroups']} WHERE id = #{table_list['invTypes']}.market_group_id))
+        sql %Q(UPDATE #{table_list['invTypes']} SET blueprint_type_id = (SELECT type_id FROM #{table_list['industryActivityProducts']} WHERE activity_id = 1 AND product_type_id = #{table_list['invTypes']}.id LIMIT 1))
 
         sql %Q(
           WITH RECURSIVE mg_roots(id, root_id) AS (

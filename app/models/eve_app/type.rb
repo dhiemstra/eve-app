@@ -3,8 +3,12 @@ class EveApp::Type < EveApp::ApplicationRecord
   belongs_to :group
   belongs_to :market_group
   belongs_to :market_group_root, class_name: 'EveApp::MarketGroup'
+  belongs_to :blueprint_type, class_name: 'EveApp::Type', optional: true
 
-  has_many :activity_products
+  has_one :manufacture_product, -> { manufacture }, class_name: 'EveApp::ActivityProduct'
+  has_one :manufacture_product_type, through: :manufacture_product, source: :product_type
+
+  has_many :activity_materials
 
   scope :published, -> { where(published: true) }
 
