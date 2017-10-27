@@ -47,9 +47,9 @@ module EveApp
 
       def missing_relations
         sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS category_id integer)
-        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS category_name VARYING(255))
-        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS group_name VARYING(255))
-        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS market_group_name VARYING(255))
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS category_name character varying)
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS group_name character varying)
+        sql %Q(ALTER TABLE #{table_list['invTypes']} ADD IF NOT EXISTS market_group_name character varying)
         sql %Q(ALTER TABLE #{table_list['invMarketGroups']} ADD root_group_id INTEGER DEFAULT NULL)
         sql %Q(ALTER TABLE #{table_list['invTypes']} ADD market_group_root_id integer)
         sql %Q(UPDATE #{table_list['invTypes']} SET group_name = (SELECT name FROM #{table_list['invGroups']} WHERE id = #{table_list['invTypes']}.group_id))
