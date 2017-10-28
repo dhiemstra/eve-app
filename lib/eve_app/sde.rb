@@ -11,7 +11,7 @@ module EveApp
       tmp_path:        Rails.root.join('tmp', 'eve-sde'),
       table_list_file: EveApp.root.join('lib', 'table-list.yml')
     }
-    PREFIXES = %w(agt dgm map trn inv sta industry)
+    PREFIXES = %w(agt dgm map trn inv sta industry ram)
     ID_TYPE_INDEX = %w(activities)
 
     class << self
