@@ -17,7 +17,7 @@ class EveApp::Type < EveApp::ApplicationRecord
     when *EveApp::Group::COMPONENTS     then :component
     when *EveApp::Group::SUPER_CAPITALS then :supercapital
     when *EveApp::Group::CAPITALS       then :capital
-    else category_name.downcase.underscore.to_sym
+    else category_name.downcase.gsub(' ', '_').to_sym
     end
   end
 
