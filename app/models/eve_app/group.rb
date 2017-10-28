@@ -1,4 +1,21 @@
 class EveApp::Group < EveApp::ApplicationRecord
+  CONSTRUCTION_COMPONENT = 334
+  STATION_COMPONENT = 536
+  CAPITAL_COMPONENT = 873
+  ADVANCED_CAPITAL_COMPONENT = 913
+
+  TITAN = 30
+  DREADNOUGHT = 485
+  CARRIER = 547
+  SUPERCARRIER = 659
+  CAPITAL_INDUSTRIAL = 883
+  JUMP_FREIGHTER = 902
+  FAX = 1538
+
+  COMPONENTS = [CONSTRUCTION_COMPONENT, STATION_COMPONENT, CAPITAL_COMPONENT, ADVANCED_CAPITAL_COMPONENT]
+  CAPITALS = [TITAN, SUPERCARRIER, CARRIER, DREADNOUGHT, CAPITALS, JUMP_FREIGHTER, FAX]
+  SUPER_CAPITALS = [TITAN, SUPERCARRIER]
+
   has_many :types, class_name: 'EveApp::Type'
   has_many :assembly_line_details, -> { standup }, class_name: 'EveApp::AssemblyLineTypeDetailPerGroup'
   has_many :assembly_line_types, through: :assembly_line_details

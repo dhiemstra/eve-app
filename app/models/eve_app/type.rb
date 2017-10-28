@@ -24,6 +24,18 @@ class EveApp::Type < EveApp::ApplicationRecord
     category_id == EveApp::Category::SHIP
   end
 
+  def capital?
+    EveApp::Group::CAPITALS.include?(group_id)
+  end
+
+  def supercapital?
+    EveApp::Group::SUPER_CAPITALS.include?(group_id)
+  end
+
+  def component?
+    EveApp::Group::COMPONENTS.include?(group_id)
+  end
+
   def image(size=64)
     "https://image.eveonline.com/Type/#{id}_#{size}.png"
   end
