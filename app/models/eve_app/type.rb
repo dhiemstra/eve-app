@@ -12,6 +12,15 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   scope :published, -> { where(published: true) }
 
+  def type
+    case group_id
+    when *EveApp::Group::COMPONENTS     then :component
+    when *EveApp::Group::SUPER_CAPITALS then :supercapital
+    when *EveApp::Group::CAPITALS       then :capital
+    else category_name.downcase.to_sym
+    end
+  end
+
   def blueprint?
     category_id == EveApp::Category::BLUEPRINT
   end
