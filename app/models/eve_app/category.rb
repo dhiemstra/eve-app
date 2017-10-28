@@ -23,6 +23,8 @@ class EveApp::Category < EveApp::ApplicationRecord
   FIGHTER             = 87
 
   has_many :types
+  has_many :assembly_line_details, -> { standup }, class_name: 'EveApp::AssemblyLineTypeDetailPerGroup'
+  has_many :assembly_line_types, through: :assembly_line_details
 
   scope :published, -> { where(published: true) }
 end
