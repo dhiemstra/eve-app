@@ -12,12 +12,12 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   scope :published, -> { where(published: true) }
 
-  def type
+  def kind
     case group_id
     when *EveApp::Group::COMPONENTS     then :component
     when *EveApp::Group::SUPER_CAPITALS then :supercapital
     when *EveApp::Group::CAPITALS       then :capital
-    else category_name.downcase.to_sym
+    else category_name.downcase.underscore.to_sym
     end
   end
 
