@@ -21,15 +21,3 @@ module EveApp
     end
   end
 end
-
-if defined?(::Rails)
-  module ::Rails
-    class Application
-      rake_tasks do
-        Dir[File.join(EveApp.root, "/lib/tasks/", "**/*.rake")].each do |file|
-          load file
-        end
-      end
-    end
-  end
-end

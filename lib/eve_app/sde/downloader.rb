@@ -3,6 +3,7 @@ module EveApp
     module Downloader
       def download
         within SDE.config.tmp_path do
+          execute :rm, '-f', 'postgres-latest*'
           execute :wget, '-q', download_uri + '{,.md5}'
           verify!
           execute :bunzip2, SDE.config.archive
@@ -10,9 +11,9 @@ module EveApp
       end
 
       def restore
-        table_list.each do |table_name,normalized_name|
+        table_list.each do |table_name,info|
           sql %Q(DROP TABLE IF EXISTS "#{table_name}")
-          sql %Q(DROP TABLE IF EXISTS "#{normalized_name}")
+          sql %Q(DROP TABLE IF EXISTS "#{info[:name]}")
         end
 
         options = ['-x -O']

@@ -29,10 +29,16 @@ module EveApp
       def table_list
         @_table_list ||= begin
           whitelist = Array[SDE.config.table_whitelist].flatten.compact.map(&:to_s)
-          tables = SDE.table_list
-          tables = whitelist.any? ? tables & whitelist : tables
-          Hash[tables.map { |name| [name, normalize_table_name(name)] }]
+          tables = SDE.table_info
+          tables.transform_values!(&:symbolize_keys)
+          tables.select! { |(name,_)| whitelist.include?(name) } if whitelist.any?
+
+          Hash[tables.map { |(name,info)| [name, { name: normalize_table_name(name) }.merge(info)] }]
         end
+      end
+
+      def table_names
+        Hash[table_list.map { |(on,info)| [on, info[:name]] }]
       end
 
       def normalize_table_name(name)

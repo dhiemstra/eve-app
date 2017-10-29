@@ -12,15 +12,18 @@ module EveApp
       table_list_file: EveApp.root.join('lib', 'table-list.yml')
     }
     PREFIXES = %w(agt dgm map trn inv sta industry ram)
-    ID_TYPE_INDEX = %w(activities)
 
     class << self
       def config
         @_config ||= OpenStruct.new(DEFAULT_CONFIG)
       end
 
+      def table_info
+        @_table_info ||= YAML::load_file(config.table_list_file)
+      end
+
       def table_list
-        @_table_list ||= YAML::load_file(config.table_list_file)
+        @_table_list ||= table_info.keys
       end
     end
   end
