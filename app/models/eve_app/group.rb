@@ -1,4 +1,5 @@
 class EveApp::Group < EveApp::ApplicationRecord
+  MINERAL = 18
   CONSTRUCTION_COMPONENT = 334
   STATION_COMPONENT = 536
   CAPITAL_COMPONENT = 873
