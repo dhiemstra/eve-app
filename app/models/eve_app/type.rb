@@ -61,21 +61,23 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   def sort_index
     case category_id
+    when EveApp::Category::ASTEROID
+      [market_group_name, base_price].join('-')
     when EveApp::Category::SHIP
-      return 1000
+      1000
     when EveApp::Category::MODULE
       case market_group_root_id
       when EveApp::MarketGroup::SHIP_MODIFICATIONS
-        return 1500
+        1500
       else
-        return 1100
+        1100
       end
     when EveApp::Category::CHARGE
       case market_group_id
       when EveApp::MarketGroup::NANITE_PASTE
-        return 1300
+        1300
       else
-        return 1200
+        1200
       end
     when EveApp::Category::DRONE then 1500
     else 2000
