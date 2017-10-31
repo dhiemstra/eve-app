@@ -61,7 +61,7 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   def sort_index
     case category_id
-    when EveApp::Category::ASTEROID
+    when EveApp::Category::ASTEROID, EveApp::Category::MATERIAL
       [market_group_name, base_price].join('-')
     when EveApp::Category::SHIP
       1000
