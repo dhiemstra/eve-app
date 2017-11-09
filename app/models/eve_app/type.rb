@@ -14,6 +14,7 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   def kind
     case group_id
+    when *EveApp::Group::MINERAL        then :mineral
     when *EveApp::Group::COMPONENTS     then :component
     when *EveApp::Group::SUPER_CAPITALS then :supercapital
     when *EveApp::Group::CAPITALS       then :capital
@@ -31,6 +32,10 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   def ship?
     category_id == EveApp::Category::SHIP
+  end
+
+  def mineral?
+    group_id == EveApp::Group::MINERAL
   end
 
   def capital?
