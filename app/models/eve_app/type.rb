@@ -12,6 +12,11 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   scope :published, -> { where(published: true) }
 
+  scope :blueprints,  -> { where(category_id: EveApp::Category::BLUEPRINT) }
+  scope :accessoires, -> { where(category_id: EveApp::Category::ACCESSOIRE) }
+  scope :minerals,    -> { where(group_id: EveApp::Group::MINERAL) }
+  scope :components,  -> { where(group_id: EveApp::Group::COMPONENTS) }
+
   def kind
     case group_id
     when *EveApp::Group::MINERAL        then :mineral
