@@ -19,10 +19,12 @@ class EveApp::Type < EveApp::ApplicationRecord
 
   def kind
     case group_id
-    when *EveApp::Group::MINERAL        then :mineral
-    when *EveApp::Group::COMPONENTS     then :component
-    when *EveApp::Group::SUPER_CAPITALS then :supercapital
-    when *EveApp::Group::CAPITALS       then :capital
+    when *EveApp::Group::MINERAL          then :mineral
+    when EveApp::Group::CAPITAL_COMPONENT then :capital_component
+    when *EveApp::Group::COMPONENTS       then :component
+    when *EveApp::Group::SUPER_CAPITALS   then :supercapital
+    when *EveApp::Group::CAPITALS         then :capital
+      when *EveApp::Group::CAPITALS       then :capital
     else category_name.downcase.gsub(' ', '_').to_sym
     end
   end
