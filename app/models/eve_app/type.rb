@@ -24,8 +24,11 @@ class EveApp::Type < EveApp::ApplicationRecord
     when *EveApp::Group::COMPONENTS       then :component
     when *EveApp::Group::SUPER_CAPITALS   then :supercapital
     when *EveApp::Group::CAPITALS         then :capital
-      when *EveApp::Group::CAPITALS       then :capital
-    else category_name.downcase.gsub(' ', '_').to_sym
+    else
+      case market_group_root_id
+      when EveApp::MarketGroup::SHIP_MODIFICATIONS then :rig
+      else category_name.downcase.gsub(' ', '_').to_sym
+      end
     end
   end
 

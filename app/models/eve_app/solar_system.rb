@@ -9,6 +9,7 @@ class EveApp::SolarSystem < EveApp::ApplicationRecord
   MAURASI = 30000140
 
   belongs_to :region
+  belongs_to :constellation
 
   has_many :stations
 end
