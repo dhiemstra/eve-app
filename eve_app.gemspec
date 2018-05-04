@@ -18,13 +18,13 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- test/*`.split("\n")
   s.require_paths = ['lib']
 
-  s.add_dependency "rake"
-  s.add_dependency "rails", "~> 5.1.1"
+  s.add_dependency "rails", "~> 5"
   s.add_dependency "multi_json"
   s.add_dependency "sshkit"
   s.add_dependency "kaminari"
   s.add_dependency "rest-client"
   s.add_dependency "active_model_serializers"
 
+  # s.add_runtime_dependency 'rake', '~> 12.3'
   s.add_development_dependency "sqlite3"
 end
