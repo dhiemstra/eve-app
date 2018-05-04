@@ -1,6 +1,8 @@
 class EveApp::Region < EveApp::ApplicationRecord
-  has_many :solar_systems, class_name: 'EveApp::SolarSystem'
+  has_many :solar_systems
+  has_many :constellations
 
-  scope :nspace, -> { where('id BETWEEN 10000000 AND 10999999') }
-  scope :wspace, -> { where('id BETWEEN 11000000 AND 11999999') }
+  scope :nspace, -> { where(id: 10000000..10999999) }
+  scope :wspace, -> { where(id: 11000000..11999999) }
+
 end

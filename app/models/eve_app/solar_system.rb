@@ -9,6 +9,7 @@ class EveApp::SolarSystem < EveApp::ApplicationRecord
   MAURASI = 30000140
 
   belongs_to :region
+  belongs_to :constellation
 
   has_many :jumps, class_name: 'SolarSystemJump', foreign_key: :from_solar_system_id
   has_many :stations
