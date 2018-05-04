@@ -16,7 +16,7 @@ module EveApp
       end
 
       def primary_keys
-        tables = table_list.select { |_, info| info[:add_primary] }
+        tables = table_list.select { |_, info| !!info[:add_primary] }
         tables.values.each do |info|
           sql %Q(ALTER TABLE #{info[:name]} ADD id SERIAL PRIMARY KEY)
         end
@@ -48,6 +48,9 @@ module EveApp
             sql %Q(ALTER TABLE #{row[:table_name]} ADD PRIMARY KEY (id))
           end
         end
+
+        # Custom indexes
+        # sql %Q(CREATE INDEX IF NOT EXISTS idx_type_attributes_type_id_attribute_id ON type_attributes (type_id, attribute_id);)
       end
 
       def missing_relations
@@ -55,14 +58,14 @@ module EveApp
         sql %Q(ALTER TABLE #{table_names['invTypes']} ADD IF NOT EXISTS category_name character varying)
         sql %Q(ALTER TABLE #{table_names['invTypes']} ADD IF NOT EXISTS group_name character varying)
         sql %Q(ALTER TABLE #{table_names['invTypes']} ADD IF NOT EXISTS market_group_name character varying)
-        sql %Q(ALTER TABLE #{table_names['invMarketGroups']} ADD root_group_id INTEGER DEFAULT NULL)
-        sql %Q(ALTER TABLE #{table_names['invTypes']} ADD market_group_root_id integer)
-        sql %Q(ALTER TABLE #{table_names['invTypes']} ADD blueprint_type_id integer)
+        sql %Q(ALTER TABLE #{table_names['invMarketGroups']} ADD IF NOT EXISTS root_group_id INTEGER DEFAULT NULL)
+        sql %Q(ALTER TABLE #{table_names['invTypes']} ADD IF NOT EXISTS market_group_root_id integer)
+        sql %Q(ALTER TABLE #{table_names['invTypes']} ADD IF NOT EXISTS blueprint_type_id integer)
         sql %Q(UPDATE #{table_names['invTypes']} SET group_name = (SELECT name FROM #{table_names['invGroups']} WHERE id = #{table_names['invTypes']}.group_id))
         sql %Q(UPDATE #{table_names['invTypes']} SET category_id = (SELECT category_id FROM #{table_names['invGroups']} WHERE id = #{table_names['invTypes']}.group_id))
         sql %Q(UPDATE #{table_names['invTypes']} SET category_name = (SELECT name FROM #{table_names['invCategories']} WHERE id = #{table_names['invTypes']}.category_id))
         sql %Q(UPDATE #{table_names['invTypes']} SET market_group_name = (SELECT name FROM #{table_names['invMarketGroups']} WHERE id = #{table_names['invTypes']}.market_group_id))
-        sql %Q(UPDATE #{table_names['invTypes']} SET blueprint_type_id = (SELECT type_id FROM #{table_names['industryActivityProducts']} WHERE activity_id = 1 AND product_type_id = #{table_names['invTypes']}.id LIMIT 1))
+        # sql %Q(UPDATE #{table_names['invTypes']} SET blueprint_type_id = (SELECT type_id FROM #{table_names['industryActivityProducts']} WHERE activity_id = 1 AND product_type_id = #{table_names['invTypes']}.id LIMIT 1))
 
         sql %Q(
           WITH RECURSIVE mg_roots(id, root_id) AS (
