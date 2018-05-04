@@ -161,7 +161,6 @@ PLATFORMS
 
 DEPENDENCIES
   eve_app!
-  rake
   sqlite3
 
 BUNDLED WITH
