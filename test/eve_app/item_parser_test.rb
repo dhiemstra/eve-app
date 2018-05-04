@@ -1,4 +1,4 @@
-require './test_helper'
+require 'test_helper'
 
 class EveApp::ItemParserTest < ActiveSupport::TestCase
   def parsed_items(input)
@@ -11,8 +11,8 @@ class EveApp::ItemParserTest < ActiveSupport::TestCase
     parser = EveApp::ItemParser.new(input)
 
     assert parser.header?
-    assert parser.header.name == 'Roaming Garmur'
-    assert parser.header.type.try(:id) == 33816
+    assert_equal 'Roaming Garmur', parser.header.name
+    assert_equal types(:garmur).id, parser.header.type.try(:id)
   end
 
   test "parse an EFT text" do
@@ -36,13 +36,13 @@ class EveApp::ItemParserTest < ActiveSupport::TestCase
     assert_equal result, expected
   end
 
-	test "ignores unmatched lines" do
-		# Unknown lala
-		# [Med slots]
-	end
-
-	test "be able to parse copy & paste from hangar" do
-		# Mid-grade Slave Alpha	1	1.0
-		# Mid-grade Slave Beta	1	1.0
-	end
+	# test "ignores unmatched lines" do
+	# 	# Unknown lala
+	# 	# [Med slots]
+	# end
+  #
+	# test "be able to parse copy & paste from hangar" do
+	# 	# Mid-grade Slave Alpha	1	1.0
+	# 	# Mid-grade Slave Beta	1	1.0
+	# end
 end

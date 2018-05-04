@@ -1,0 +1,48 @@
+_fixture:
+  model_class: EveApp::Type
+
+garmur:
+  id: 33816
+  name: Garmur
+1200mm_artillery_cannon_ii:
+  name: 1200mm Artillery Cannon II
+ballistic_control_system_ii:
+  name: Ballistic Control System II
+coreli_a_type_5mn_microwarpdrive:
+  name: Coreli A-Type 5MN Microwarpdrive
+nanite_repair_paste:
+  name: Nanite Repair Paste
+scimitar:
+  name: Scimitar
+small_core_defense_field_extender_ii:
+  name: Small Core Defense Field Extender II
+vexor:
+  name: Vexor
+warp_disrupt_probe:
+  name: Warp Disrupt Probe
+orthrus:
+  name: Orthrus
+10mn_afterburner_ii:
+  name: 10MN Afterburner II
+100mn_afterburner_i:
+  name: 100MN Afterburner I
+warp_scrambler_ii:
+  name: Warp Scrambler II
+tracking_computer_ii:
+  name: Tracking Computer II
+800mm_repeating_cannon_ii:
+  name: 800mm Repeating Cannon II
+sensor_booster_ii:
+  name: Sensor Booster II
+heavy_energy_neutralizer_ii:
+  name: Heavy Energy Neutralizer II
+quake_l:
+  name: Quake L
+tremor_l:
+  name: Tremor L
+barrage_l:
+  name: Barrage L
+x_large_ancillary_shield_booster:
+  name: X-Large Ancillary Shield Booster
+navy_cap_booster_400:
+  name: Navy Cap Booster 400

@@ -1,9 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
-
 Bundler.require(*Rails.groups)
-require "eve_app"
 
 module Dummy
   class Application < Rails::Application
@@ -20,4 +18,3 @@ module Dummy
     config.api_only = true
   end
 end
-
