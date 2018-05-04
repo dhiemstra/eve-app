@@ -14,9 +14,11 @@ Gem::Specification.new do |s|
   s.description = "Basic models for the EveSDE data"
   s.license     = "MIT"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- test/*`.split("\n")
   s.require_paths = ['lib']
 
+  s.add_dependency "rake"
   s.add_dependency "rails", "~> 5.1.1"
   s.add_dependency "multi_json"
   s.add_dependency "sshkit"

@@ -6,6 +6,7 @@ PATH
       kaminari
       multi_json
       rails (~> 5.1.1)
+      rake
       rest-client
       sshkit
 
@@ -160,6 +161,7 @@ PLATFORMS
 
 DEPENDENCIES
   eve_app!
+  rake
   sqlite3
 
 BUNDLED WITH
