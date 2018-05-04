@@ -167,8 +167,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.14)
   eve_app!
-  rake
+  rake (~> 12.3)
   sqlite3
 
 BUNDLED WITH

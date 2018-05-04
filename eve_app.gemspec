@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rest-client"
   s.add_dependency "active_model_serializers"
 
-  s.add_development_dependency "rake"
+  s.add_development_dependency 'bundler', '~> 1.14'
+  s.add_development_dependency 'rake', '~> 12.3'
   s.add_development_dependency "sqlite3"
 end
