@@ -3,9 +3,9 @@ PATH
   specs:
     eve_app (0.1.29)
       active_model_serializers
+      activerecord (~> 5)
       kaminari
       multi_json
-      rails (~> 5)
       rest-client
       sshkit
 
@@ -169,6 +169,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.14)
   eve_app!
+  rails (~> 5)
   rake (~> 12.3)
   sqlite3
 

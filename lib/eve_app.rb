@@ -1,5 +1,4 @@
 require "pathname"
-require "active_model_serializers"
 require "eve_app/engine"
 
 module EveApp

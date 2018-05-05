@@ -8,7 +8,7 @@ module EveApp
       table_prefix:    :eve,
       download_host:   'https://www.fuzzwork.co.uk/dump',
       archive:         'postgres-latest.dmp.bz2',
-      tmp_path:        Rails.root.join('tmp', 'eve-sde'),
+      tmp_path:        EveApp.root.join('tmp', 'eve-sde'),
       table_list_file: EveApp.root.join('lib', 'table-list.yml')
     }
     PREFIXES = %w(agt dgm map trn inv sta industry ram)

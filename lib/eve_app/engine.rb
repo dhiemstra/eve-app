@@ -1,6 +1,8 @@
-module EveApp
-  class Engine < ::Rails::Engine
-    isolate_namespace EveApp
-    config.generators.api_only = true
+if defined?(Rails)
+  module EveApp
+    class Engine < ::Rails::Engine
+      isolate_namespace EveApp
+      config.generators.api_only = true
+    end
   end
 end

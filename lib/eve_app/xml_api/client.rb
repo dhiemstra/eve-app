@@ -71,7 +71,7 @@ module EveApp
         end
 
         if save_responses
-          folder = Rails.root.join('tmp', call.to_s.underscore)
+          folder = EveApp.root.join('tmp', call.to_s.underscore)
           FileUtils.mkdir_p(folder)
           File.write(folder.join("#{Time.now.to_i.to_s}.xml"), response.body)
         end
