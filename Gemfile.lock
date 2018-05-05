@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    eve_app (0.1.31)
+    eve_app (0.1.32)
       active_model_serializers
       activerecord (~> 5)
       kaminari
