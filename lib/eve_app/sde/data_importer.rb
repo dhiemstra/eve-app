@@ -29,6 +29,9 @@ module EveApp
       def table_list
         @_table_list ||= begin
           whitelist = Array[SDE.config.table_whitelist].flatten.compact.map(&:to_s)
+          whitelist += %w[invMarketGroups invCategories invGroups] if whitelist.include?('invTypes')
+          whitelist = whitelist.uniq
+
           tables = SDE.table_info
           tables.transform_values!(&:symbolize_keys)
           tables.select! { |(name,_)| whitelist.include?(name) } if whitelist.any?
