@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- test/*`.split("\n")
-  s.require_paths = ['lib']
+  s.require_paths = ['lib', 'app/models']
 
   s.add_dependency "activerecord", "~> 5"
   s.add_dependency "multi_json"
